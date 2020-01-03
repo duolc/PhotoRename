@@ -10,7 +10,7 @@ path =  os.getcwd()
 if cont in ["Y", "y", "Yes", "yes"]:
     files = os.listdir(path)
     for origName in files:
-        if origName.startswith('IMG'):
+        if origName.startswith('IMG') and origName.endswith('.CR2'):
             file = open(origName, 'rb')
             tags = exifread.process_file(file)
             createdDate = str(tags.get('EXIF DateTimeOriginal', '0'))
